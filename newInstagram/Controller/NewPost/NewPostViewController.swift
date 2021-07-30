@@ -85,7 +85,8 @@ extension NewPostViewController: UITextFieldDelegate {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension NewPostViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return namesList.count
     }
     
@@ -96,10 +97,8 @@ extension NewPostViewController: UITableViewDelegate, UITableViewDataSource {
         
         return namesCell
     }
-    
-    //HELP
-    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        photoNameTextField.text = namesList[indexPath.row]
-    }
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		photoNameTextField.text = namesList[indexPath.row]
+	}
 }
