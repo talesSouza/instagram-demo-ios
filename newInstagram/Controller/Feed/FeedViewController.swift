@@ -6,37 +6,46 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var feedTableView: UITableView!
     
     // MARK: - Properties
-    var post: Post?
     var postList: [Post] = []
-    var isNewPost: Bool = false
-    
-    // MARK: - LifeCycle
+}
+
+// MARK: - LifeCycle
+extension FeedViewController {
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableView()
+		setupLayout()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		feedTableView.reloadData()
+	}
+}
+
+// MARK: - Functions
+extension FeedViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        if isNewPost {
-            feedTableViewReload()
-        }
-    }
-    
-    // MARK: - Functions
-    func setTableView() {
-        feedTableView.delegate = self
-        feedTableView.dataSource = self
-        feedTableView.allowsSelection = false
-    }
-    
-    func feedTableViewReload() {
-        feedTableView.reloadData()
-    }
+}
+
+// MARK: - Setup
+extension FeedViewController {
+	
+	private func setupLayout() {
+		setupTableView()
+	}
+	
+	private func setupTableView() {
+		feedTableView.delegate = self
+		feedTableView.dataSource = self
+		feedTableView.allowsSelection = false
+	}
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postList.count
     }
     
@@ -44,7 +53,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         
         let customCell = feedTableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! FeedTableViewCell
         
-        customCell.photoSubtitleLabel.text = postList[indexPath.row].photoSubtitle
+        customCell.photoSubtitleLabel.text = postList[indexPath.row].subtitle
         customCell.photoImage.image = postList[indexPath.row].photo
         
         return customCell

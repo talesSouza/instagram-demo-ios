@@ -86,7 +86,7 @@
 				1CAC218926ADD65700F68E0A /* SceneDelegate.swift */,
 				1CAC21A026ADDCFF00F68E0A /* Model */,
 				1CAC219F26ADDCF900F68E0A /* Controller */,
-				1CAC21A126ADDD0400F68E0A /* View */,
+				1CAC21A126ADDD0400F68E0A /* Storyboard */,
 				1CAC219026ADD65900F68E0A /* Assets.xcassets */,
 				1CAC219226ADD65900F68E0A /* LaunchScreen.storyboard */,
 				1CAC219526ADD65900F68E0A /* Info.plist */,
@@ -111,12 +111,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1CAC21A126ADDD0400F68E0A /* View */ = {
+		1CAC21A126ADDD0400F68E0A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				1CAC218D26ADD65700F68E0A /* Main.storyboard */,
 			);
-			path = View;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
